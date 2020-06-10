@@ -54,42 +54,45 @@
     <section class="hero overlay">
         <div class="container hero__container">
             <h1 class="hero__title">Эффективные решения для вашего бизнеса</h1>
-            <button class="button button__primary" data-open-modal>Заказать услугу</button>
+            <button class="button button__primary" data-modal-open>Заказать услугу</button>
         </div>
-        <div class="backdrop is-hidden" data-backdrop>
+        <div class="backdrop is-hidden" data-modal>
             <div class="modal">
-                <button class="close-button" data-close-modal></button>
-                <b class="modal__title">
-                    Оставьте свои данные, мы вам перезвоним
-                </b>
-                <form class="form">
-                    <div class="form__field">
-                        <label for="name" class="form__label">Имя</label>
-                        <input type="text" name="name" id="name" class="form__input" autofocus/>
+                <button class="close-button" data-modal-close></button>
+                <form class="form"></form>
+                    <b class="form__caption">
+                     Оставьте свои данные, мы вам перезвоним
+                    </b>
+                    <div class="form__input-container">
+                        <div class="form__field">
+                            <label for="name" class="form__label"><span class="label-name">Имя</span></label>
+                            <input class="form__input" type="text" name="name" id="name" placeholder="&nbsp;" autofocus/>
+                        </div>
+                        <div class="form__field">
+                            <label for="tel" class="form__label">Телефон</label>
+                            <input class="form__input" type="tel" name="tel" id="tel" placeholder="&nbsp;"/>
+                        </div>                
+                        <div class="form__field">
+                            <label for="email" class="form__label">Почта</label>
+                            <input class="form__input" type="email" name="email" id="email" placeholder="&nbsp;" required/>
+                        </div>
+                        <div class="form__field">
+                            <label for="comment" class="form__label">Комментарий</label>
+                            <textarea class="form__input comment" name="comment" id="comment" placeholder="&nbsp;"></textarea>
+                        </div>
                     </div>
-                    <div class="form__field">
-                        <label for="tel" class="form__label">Телефон</label>
-                        <input type="tel" name="tel" id="tel" class="form__input"/>
-                    </div>                
-                    <div class="form__field">
-                        <label for="email" class="form__label">Почта</label>
-                        <input type="email" name="email" id="email" class="form__input"/>
+                    <div class="form__checkbox-container">
+                        <div class="form__field">
+                            <input type="checkbox" name="policy" id="policy" class="form__checkbox-input"/>
+                            <label for="policy" class="form__checkbox-label">Соглашаюсь с рассылкой и принимаю 
+                                <span>
+                                    <a href="#" class="policy">Условия договора</a>
+                                </span>
+                            </label>
+                        </div>
                     </div>
-                    <div class="form__field">
-                        <label for="comment" class="form__label">Комментарий</label>
-                        <textarea class="form__input comment" name="comment" id="comment"></textarea>
-                    </div>
-                    <div class="form__field">
-                        <input type="checkbox" name="policy" id="policy" class="form__checkbox-input"/>
-                        <label for="policy" class="form__checkbox-label">Соглашаюсь с рассылкой и принимаю 
-                            <span>
-                                <a href="#" class="policy">Условия договора</a>
-                            </span>
-                        </label>
-                    </div>
+                    <button type="submit" class="button button__primary">Отправить</button>
                 </form>
-
-                <button class="button button__primary">Отправить</button>
             </div>
         </div>
     </section>
@@ -494,25 +497,6 @@
 
     <!-- Скрипт для работы бэкдропа и модалки -->
 
-    <script>
-        const refs = {
-          openModalBtn: document.querySelector("[data-open-modal]"),
-          closeModalBtn: document.querySelector("[data-close-modal]"),
-          backdrop: document.querySelector("[data-backdrop]"),
-        };
-  
-        refs.openModalBtn.addEventListener("click", toggleModal);
-        refs.closeModalBtn.addEventListener("click", toggleModal);
-  
-        refs.backdrop.addEventListener("click", logBackdropClick);
-  
-        function toggleModal() {
-          refs.backdrop.classList.toggle("is-hidden");
-        }
-  
-        function logBackdropClick() {
-          console.log("Это клик в бекдроп");
-        }
-    </script>
+    <script src="./js/modal.js"></script>
 </body>
 </html>
