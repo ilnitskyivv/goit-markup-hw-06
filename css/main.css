@@ -331,13 +331,12 @@ position: absolute;
 top: 0;
 right: 0;
 
+display: flex;
+align-items: center;
+justify-content: center;
+
 width: 30px;
 height: 30px;
-
-background-image: url(../images/close-btn.svg);
-background-color: var(--primary-white-color);
-background-position: center;
-background-repeat: no-repeat;
 
 cursor: pointer;
 border-radius: 50%;
@@ -348,9 +347,19 @@ transform: translate(25%, -25%) scale(1);
 transition: transform var(--function-duration) var(--function-timing);
 }
 
-.close-button:hover,
-.close-button:focus {
-transform: translate(25%, -25%) scale(1.2);
+.icon-close-btn {
+display: inline-block;
+
+width: 11px;
+height: 11px;
+
+transform: scale(1);
+transition: transform var(--function-duration) var(--function-timing);
+}
+
+.close-button:hover .icon-close-btn,
+.close-button:focus .icon-close-btn {
+transform: scale(1.2);
 transition: transform var(--function-duration) var(--function-timing);
 }
 
@@ -404,16 +413,14 @@ top: 10px;
 left: 16px;
 
 pointer-events: none;
-
-/* transition: fill 5000ms var(--function-timing); */
+transition: all var(--function-duration) var(--function-timing);
 }
 
 .form__input:hover ~ .icon-input,
 .form__input:focus ~ .icon-input,
 .form__input:not(:placeholder-shown) ~ .icon-input {
 --color5: var(--accent-color);
-
-/* transition: fill 5000ms var(--function-timing); */
+transition: all var(--function-duration) var(--function-timing);
 }
 
 .form__input {
@@ -431,7 +438,6 @@ transition: border-color var(--function-duration) var(--function-timing);
 .form__input:focus,
 .form__input:not(:placeholder-shown) {
 border-color: var(--accent-color);
-
 transition: border-color var(--function-duration) var(--function-timing);
 }
 
@@ -467,6 +473,42 @@ transition: transform var(--function-duration) var(--function-timing);
 margin-bottom: 30px;
 }
 
+.form__checkbox {
+position: absolute;
+width: 1px;
+height: 1px;
+margin: -1px;
+border: 0;
+padding: 0;
+clip: rect(0 0 0 0);
+overflow: hidden;
+}
+
+.icon-checkbox {
+display: inline-block;
+margin-right: 5px;
+
+width: 15px;
+height: 15px;
+
+border: 2px solid var(--primary-text-color);
+border-radius: 2px;
+
+vertical-align: sub;
+transition: transform var(--function-duration) var(--function-timing);
+}
+
+.form__checkbox:checked + .icon-checkbox {
+background-image: url(../images/checkbox.svg);
+background-size: contain;
+background-origin: border-box;
+
+border-color: transparent;
+
+transform: scale(1.2);
+transition: transform var(--function-duration) var(--function-timing);
+}
+
 .form__checkbox-label {
 line-height: 1.71;    
 letter-spacing: 0.03em;
@@ -474,12 +516,6 @@ letter-spacing: 0.03em;
 color: var(--secondary-text-color);
 }
 
-.form__checkbox-input {
-margin-right: 5px;
-width: 15px;
-height: 15px;
-vertical-align: middle;
-}
 
 .policy {
 color: var(--accent-color);

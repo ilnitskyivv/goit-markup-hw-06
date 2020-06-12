@@ -58,7 +58,11 @@
         </div>
         <div class="backdrop is-hidden" data-modal>
             <div class="modal">
-                <button class="close-button" data-modal-close></button>
+                <button class="close-button" data-modal-close>
+                    <svg class="icon-close-btn" width="11" height="11">
+                        <use href="./images/sprite.svg#icon-close-btn" class="use"></use>
+                    </svg>
+                </button>
                 <form class="form"></form>
                     <b class="form__caption">
                      Оставьте свои данные, мы вам перезвоним
@@ -97,14 +101,15 @@
                         </label>
                     </div>
                     <div class="form__checkbox-container">
-                        <div class="form__field">
-                            <input type="checkbox" name="policy" id="policy" class="form__checkbox-input"/>
-                            <label for="policy" class="form__checkbox-label">Соглашаюсь с рассылкой и принимаю 
+                        <label class="form__field">
+                            <input type="checkbox" name="policy" class="form__checkbox"/>
+                            <span class="icon-checkbox"></span>
+                            <span class="form__checkbox-label">Соглашаюсь с рассылкой и принимаю
                                 <span>
-                                    <a href="#" class="policy">Условия договора</a>
+                                <a href="#" class="policy">Условия договора</a>
                                 </span>
-                            </label>
-                        </div>
+                            </span> 
+                        </label>
                     </div>
                     <button type="submit" class="button button__primary">Отправить</button>
                 </form>
